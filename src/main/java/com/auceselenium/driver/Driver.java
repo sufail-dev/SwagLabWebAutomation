@@ -5,6 +5,8 @@ import java.util.Objects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.aucselenium.utils.ReadPropertyFile;
+
 import auceSelenium.constants.ConstantsAUC;
 
 public class Driver {
@@ -14,13 +16,14 @@ public class Driver {
 
 	
 	
-	public static void initDriver() {
+	public static void initDriver() throws Exception {
 		
 	
 		if(Objects.isNull(DriverManager.getDriver())) {
 		System.setProperty("webdriver.chrome.driver", ConstantsAUC.getChromedriver());
 		WebDriver driver=new ChromeDriver();
 		DriverManager.setDriver(driver);
+		DriverManager.getDriver().get(ReadPropertyFile.get("url"));
 		}
 	}
 	
