@@ -3,7 +3,24 @@
 	<groupId>org.testabc</groupId>
 	<artifactId>aucedemoSelenium</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
+<build>
+    <plugins>
+        <plugin>
+            <artifactId>maven-clean-plugin</artifactId>
+            <version>3.1.0</version> <!-- Adjust version if needed -->
+            <configuration>
+                <filesets>
+                    <fileset>
+                        <directory>${project.basedir}/target</directory>
+                    </fileset>
+                    <fileset>
+                        <directory>${project.basedir}/test-output</directory>
+                    </fileset>
+                </filesets>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 		<dependency>
