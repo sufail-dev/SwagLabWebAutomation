@@ -14,6 +14,7 @@ public final class LoginPage{
 	
 	
 	public LoginPage enterUserName(String userName) {
+		System.out.println("username");
 		DriverManager.getDriver().findElement(usernameField).sendKeys(userName);
 		return this;
 	}
