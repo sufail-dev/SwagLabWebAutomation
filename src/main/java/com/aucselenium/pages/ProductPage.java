@@ -2,6 +2,8 @@ package com.aucselenium.pages;
 
 import org.openqa.selenium.By;
 
+import com.auceselenium.enums.WaitOption;
+
 public class ProductPage extends BasePage {
 	
 	
@@ -9,8 +11,8 @@ public class ProductPage extends BasePage {
 	private final By logoutLink=By.id("logout_sidebar_link");
 		
 	public void clickLogoutButton(){
-		clickElement(menu);
-		clickElement(logoutLink);
+		clickElement(menu,WaitOption.PRESENCE);
+		clickElement(logoutLink,WaitOption.VISIBLE);
 	}
 
 }

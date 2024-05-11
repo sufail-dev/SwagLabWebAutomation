@@ -24,6 +24,7 @@ public class Driver {
 		WebDriver driver=new ChromeDriver();
 		DriverManager.setDriver(driver);
 		DriverManager.getDriver().get(ReadPropertyFile.get("url"));
+		DriverManager.getDriver().manage().window().maximize();
 		}
 	}
 	
