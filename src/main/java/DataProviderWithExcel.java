@@ -23,21 +23,21 @@ public class DataProviderWithExcel {
 	
 	@DataProvider
 	public Object[] passData() throws IOException {
-		FileInputStream fl=new FileInputStream(System.getProperty("user.dir")+"/excel/myData.xlsx");
+		FileInputStream fl=new FileInputStream(System.getProperty("user.dir")+"/excell/sampleData.xlsx");
 		XSSFWorkbook myExcel=new XSSFWorkbook(fl);
-		XSSFSheet sheet=myExcel.getSheet("testData");
+		XSSFSheet sheet=myExcel.getSheet("test");
 		int rowNum=sheet.getLastRowNum();
 		int column=sheet.getRow(0).getLastCellNum();
 		Object[] data=new Object[rowNum];
 		Map<String, String> map;
 		
-		for(int i=1;i<rowNum;i++) {
+		for(int i=1;i<=rowNum;i++) {
 			map=new HashMap<>();
 			for(int j=0;j<column;j++) {
 				String key=sheet.getRow(0).getCell(j).getStringCellValue();
 				String value= sheet.getRow(i).getCell(j).getStringCellValue();
 				map.put(key, value);
-				data[i-j]=map;
+				data[i-1]=map;
 			}
 			
 			

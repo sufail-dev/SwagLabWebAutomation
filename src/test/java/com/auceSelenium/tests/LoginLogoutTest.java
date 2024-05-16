@@ -1,5 +1,6 @@
 package com.auceSelenium.tests;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.auceselenium.driver.Driver;
@@ -11,10 +12,22 @@ public final class LoginLogoutTest extends BaseTest{
 	private LoginLogoutTest(){
 		
 	}
-	@Test
-	public void test3() throws Exception {
+	@Test(dataProvider="LoginTestDataProvider")
+	public void test3(String username, String password) throws Exception {
 		
 		LoginPage login=new LoginPage();
-		login.enterUserName("standard_user").enterPassword("secret_sauce").clickLoginButton().clickLogoutButton();
+		login.enterUserName(username).enterPassword(password).clickLoginButton().clickLogoutButton();
 }
+	@DataProvider (name="LoginTestDataProvider",parallel=true) 
+	public Object[][] getData(){
+		return new Object[][] {
+			{"standard_user","secret_sauce"},
+			{"sufail","sulaiman"},
+			{"problem_user","secret_sauce"},
+			{"sshsjjs","bsjdskjd"}
+		};
+	}
+	
+	
+	
 }
